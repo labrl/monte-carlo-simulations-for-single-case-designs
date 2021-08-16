@@ -83,8 +83,8 @@ for (i in seq(1,length(all_AB_data), 2)){
 
 
 #Check validity of CDC method
-#Overall agreement
-agreement_CDC = sum(cdc_results == true_values)/length(true_values)
+#Overall accuracy
+accuracy_CDC = sum(cdc_results == true_values)/length(true_values)
 
 #Type I error rate
 idx_0 = which(true_values == 0)
@@ -99,8 +99,8 @@ power_CDC = sum(cdc_results[idx_1])/length(idx_1)
 #Import expert data
 expert_data = read.csv('Expert_data.csv', header = FALSE)[1]
 
-#Overall agreement
-agreement_VI = sum(expert_data[1] == true_values)/length(true_values)
+#Overall accuracy
+accuracy_VI = sum(expert_data[1] == true_values)/length(true_values)
 
 #Type I error rate
 typeI_error_VI = sum(expert_data[idx_0,1])/length(idx_0)

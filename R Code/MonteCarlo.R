@@ -42,14 +42,14 @@ for (i in seq(1,length(all_AB_data), 2)){
   cdc_results = c(cdc_results, CDC_method(all_AB_data[i:(i+1)]))
 }
 
-agreement_CDC = sum(cdc_results == true_values)/length(true_values)
+accuracy_CDC = sum(cdc_results == true_values)/length(true_values)
 idx_0 = which(true_values == 0)
 typeI_error_CDC = sum(cdc_results[idx_0])/length(idx_0)
 idx_1 = which(true_values == 1)
 power_CDC = sum(cdc_results[idx_1])/length(idx_1)
 
 expert_data = read.csv('Expert_data.csv', header = FALSE)[1]
-agreement_VI = sum(expert_data[1] == true_values)/length(true_values)
+accuracy_VI = sum(expert_data[1] == true_values)/length(true_values)
 typeI_error_VI = sum(expert_data[idx_0,1])/length(idx_0)
 power_VI = sum(expert_data[idx_1,1])/length(idx_1)
 

@@ -91,8 +91,8 @@ for i in range(len(all_AB_data)):
     cdc_results = np.hstack((cdc_results, CDC_method(all_AB_data[i])))
 
 #Check validity of CDC method
-#Overall agreement
-agreement_CDC = np.sum(cdc_results == true_values)/len(true_values)
+#Overall accuracy
+accuracy_CDC = np.sum(cdc_results == true_values)/len(true_values)
 
 #Type I error rate
 idx_0, = np.where(true_values == 0)
@@ -107,8 +107,8 @@ power_CDC = np.sum(cdc_results[idx_1])/len(idx_1)
 #Import expert data
 expert_data = (pd.read_csv('Expert_data.csv', header = None)).values.flatten()
 
-#Overall agreement
-agreement_VI = np.sum(expert_data == true_values)/len(true_values)
+#Overall accuracy
+accuracy_VI = np.sum(expert_data == true_values)/len(true_values)
 
 #Type I error rate 
 typeI_error_VI = np.sum(expert_data[idx_0])/len(idx_0)
